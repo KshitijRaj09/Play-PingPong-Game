@@ -243,7 +243,7 @@ wallHitSoundPlay().then(function(){
 function reset() {
     // [user.x, user.y]=[10, (canvas.height / 2) - (paddleHeight / 2)];
     // [ai.x, ai.y]=[canvas.width - (paddleWidth + 10), (canvas.height / 2) - (paddleHeight / 2)];
-    [ball.x, ball.y] = [canvas.width / 2, canvas.width / 2];
+    [ball.x, ball.y, ball.speed] = [canvas.width / 2, canvas.width / 2, 7];
     [ball.velocityX, ball.velocityY] = [-ball.velocityX, -ball.velocityY];
 }
 
@@ -256,7 +256,7 @@ function gameReset() {
     clearInterval(gameInterval);
     [user.x, user.y]=[10, (canvas.height / 2) - (paddleHeight / 2)];
     [ai.x, ai.y]=[canvas.width - (paddleWidth + 10), (canvas.height / 2) - (paddleHeight / 2)];
-    [ball.x, ball.y] = [canvas.width / 2, canvas.width / 2];
+    [ball.x, ball.y, ball.speed] = [canvas.width / 2, canvas.width / 2, 7];
     [ball.velocityX, ball.velocityY] = [-ball.velocityX, -ball.velocityY];
     [user.score, ai.score]= [0, 0];
     result.innerHTML="";
