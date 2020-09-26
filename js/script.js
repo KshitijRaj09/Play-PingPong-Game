@@ -149,20 +149,20 @@ const update = () => {
 
     if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
 
-        wallHitSound.play();
+        wallHitSoundPlay();
         ball.velocityY = -ball.velocityY;
     }
 
     //Check for user score
     if (ball.x + ball.radius >= canvas.width) {
-        scoreSound.play();
+        scoreSoundPlay();
         user.score++;
         //Game result function call
         gameResult();
     }
 
     if (ball.x - ball.radius <= 0) {
-        scoreSound.play();
+        scoreSoundPlay();
         ai.score++;
         // Game Result function call
         gameResult();
@@ -182,7 +182,7 @@ const update = () => {
 
     if (collisionDetect(player, ball)) {
         // play hitSound
-        hitSound.play();
+        hitSoundPlay();
         // default angle is 0deg in Radian
         let angle = 0;
 
@@ -205,6 +205,40 @@ const update = () => {
     }
 
 }
+
+function hitSoundPlay(){
+    return hitSound.play();
+}
+
+hitSoundPlay().then(function() {
+  console.log('The play() Promise fulfilled! Rock on!');
+}).catch(function(error) {
+  console.log('The play() Promise rejected!');
+  console.log(error);
+});
+
+function scoreSoundPlay(){
+    return scoreSound.play();
+}
+
+scoreSoundPlay().then(function(){
+    console.log("Hit Sound Promise fullfilled");
+}).catch(function(error){
+    console.log("Hit Sound Promise Rejected");
+    console.log(error);
+})
+
+function wallHitSoundPlay(){
+    return wallHitSound.play();
+}
+
+wallHitSoundPlay().then(function(){
+    console.log('Wall Hit Sound promise fullfilled');
+}).catch(function(error){
+    console.log('wall hit sound promise rejected');
+    console.log(error);
+})
+
 
 function reset() {
     // [user.x, user.y]=[10, (canvas.height / 2) - (paddleHeight / 2)];
